@@ -14,12 +14,26 @@ const generateHTML = (answers) =>
 <body>
   <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4">Project Title${answers.title}</h1>
+    <h1 class="display-4">Project Title: ${answers.title}</h1>
     <p class="lead">Project Description: ${answers.description}.</p>
-    <h3>Example heading <span class="badge badge-secondary">Contact Me</span></h3>
+    <h3>User Guide <span class="badge badge-secondary"></span></h3>
+    <p></p>
+
     <ul class="list-group">
-      <li class="list-group-item">Installation Instruction:  ${answers.installation}</li>
+      <li class="list-group-item">Installation Instruction: ${answers.installation}</li>
       <li class="list-group-item">Required License: ${answers.licence}</li>
+      <li class="list-group-item">Usage: ${answers.usage}</li>
+      <li class="list-group-item">Test:  ${answers.test}</li>
+    </ul>
+    <h3>Table of Content <span class="badge badge-secondary"></span></h3>
+    <ul class="list-group">
+      <li class="list-group-item">Table of Content:  ${answers.tableOfContent}</li>
+
+   </ul>
+    <h3>Questions <span class="badge badge-secondary"></span></h3>
+    <ul class="list-group">
+      <li class="list-group-item">GitHub Username:  ${answers.gitHubName}</li>
+      <li class="list-group-item">Email Address: ${answers.emailAddress}</li>
     </ul>
   </div>
 </div>
@@ -45,6 +59,18 @@ function init(){
 
         {
             type: "input",
+            name: "tableOfContent",
+            message: "Enter table of content "
+        },
+
+        {
+            type: "input",
+            name: "usage",
+            message: "How do you use this project "
+        },
+
+        {
+            type: "input",
             name: "installation",
             message: "What is the installation instructions of your project"
         },
@@ -54,7 +80,32 @@ function init(){
             name: "licence",
             message: "What licence do you need",
             choices: ["Apache", "MIT","Microsoft Public License", "PostgreSQL License","None"]
-        }
+        },
+
+        {
+            type: "input",
+            name: "test",
+            message: "How can this be tested "
+        },
+
+        // {
+        //     type: "input",
+        //     name: "contribution",
+        //     message: "what is it contibuting "
+        // },
+
+        {
+            type: "input",
+            name: "gitHubName",
+            message: "Enter github details"
+        },
+
+        {
+            type: "input",
+            name: "emailAddress",
+            message: "Enter email address"
+        },
+
     ])
 
     //     .then((answers) => {
