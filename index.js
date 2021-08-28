@@ -2,6 +2,31 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 
+const generateHTML = (answers) =>
+  `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Project Title${answers.title}</h1>
+    <p class="lead">Project Description: ${answers.description}.</p>
+    <h3>Example heading <span class="badge badge-secondary">Contact Me</span></h3>
+    <ul class="list-group">
+      <li class="list-group-item">Installation Instruction:  ${answers.installation}</li>
+      <li class="list-group-item">Required License: ${answers.licence}</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>`;
+
+
 function init(){
     inquirer
     .prompt([
@@ -31,34 +56,41 @@ function init(){
             choices: ["Apache", "MIT","Microsoft Public License", "PostgreSQL License","None"]
         }
     ])
-    .then((answers) => {
-        // Use user feedback for... whatever!!
-        console.log(answers);
-        // take the answers and write into a file
-        // use fs writefile
-        writeToFile("ReadMe.md", generateTemplate(answers))// name of file, 
 
-        // add code here=-
-    })
-    .catch((error) => {
-        if (error.isTtyError) {
-        // Prompt couldn't be rendered in the current environment
-        } else {
-        // Something else went wrong
-        }
-    });
+    //     .then((answers) => {
+//         // Use user feedback for... 
+//         console.log(answers);
+//         // take the answers and write into a file
+//         // use fs writefile
+//        writeToFile("ReadMe.md", generateTemplate(answers))// name of file, 
+
+//         // add code here=-
+//     })
+//     .catch((error) => {
+//         if (error.isTtyError) {
+//         // Prompt couldn't be rendered in the current environment
+//         } else {
+//         // Something else went wrong
+//         }
+//     });
+// }
+// function generateTemplate(data){
+//     // use the data from the inquirer answers inside of the template
+
+// }
+
+// function writeToFile(answerFile, actualAnswers ){
+//     fs.writeFile(answerFile, actualAnswers )
+// }
+
+.then((answers) => {
+    const htmlPageContent = generateHTML(answers);
+
+    fs.writeFile('index.html', htmlPageContent, (err) =>
+      err ? console.log(err) : console.log('Successfully created index.html!')
+    );
+  });
+
 }
-function generateTemplate(data){
-    // use the data from the inquirer answers inside of the template
-
-}
-
-function writeToFile(answerFile, actualAnswers ){
-    fs.writeFile(answerFile, actualAnswers )
-
-
-}
-
 
 init();
-
