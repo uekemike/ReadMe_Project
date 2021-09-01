@@ -2,16 +2,12 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const util = require('util');
 const generateReadMe = require('./generateReadMe');
-//const apiCall = require('./api');
 const writeFileSync = util.promisify(fs.writeFile);
 
 
 
-
-
 function init(){
-    inquirer
-    .prompt([
+   return inquirer.prompt([
         /* Pass your questions in here */
         {
             type: "input",
@@ -70,12 +66,12 @@ function init(){
 
     ])
 
-        .then((questions) => {
+        .then((answers) => {
         // Use user feedback for... 
-        console.log(questions);
+        console.log(answers);
         // take the answers and write into a file
-       const data = JSON.stringify(questions, null, 2);
-       fs.writeFileSync("README.md", generateReadMe(questions))// name of file, 
+       const data = JSON.stringify(answers, null, 2);
+       fs.writeFileSync("README.md", generateReadMe(answers))// name of file, 
 
         // add code here=-
     })

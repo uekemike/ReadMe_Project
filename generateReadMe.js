@@ -14,36 +14,36 @@ function generateReadMe(answers){
              *[Test](#Contributors)
 
 
-            ##installation:
+            ## installation:
              ${answers.installation}
              
 
-            ##usage:
+            ## usage:
              ${answers.usage}
              
 
-            ##licence:
+            ### licence:
              ${answers.license}
              
 
-            ##test:
+            ### test:
              ${answers.test}
              
 
-            ##Contributors:
+            ### Contributors:
              ${answers.contributing}
 
 
-            ##GitHub Name:
+            ### GitHub Name:
              ${answers.gitHubName}
                           
              
-            ##Email Address:
+            ### Email Address:
              ${answers.emailAddress}
              
             
             Copyright 2021 &copy;
- `
-};
+ `;
+}
 
 module.exports = generateReadMe;

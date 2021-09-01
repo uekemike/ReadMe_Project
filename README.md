@@ -2,7 +2,7 @@
             # README.md_Generator
             
              ReadME Generator
-             Using Node.js, create a template README.md file with users input to generate the README.',
+             Using Node.js, create a template README.md file with users input to generate the README.
 
             ## Table of Content:
              *[Installation](#installation)
@@ -12,31 +12,31 @@
              *[Test](#Contributors)
 
 
-            ##installation:
+            ## installation:
              FS, Util, Inquirer
              
 
-            ##usage:
-             'Start the project by entering the command node index.js in Bash/Terminal. Next you would be prompted with a series of questions. Once you are done answering the question the ReadME.md file will be populated with your answers.
+            ## usage:
+             To use this project type the command "node index.js" in Bash/Terminal. Next you would be prompted with a series of questions. Once you are done answering the question the ReadME.md file will be populated with your answers.
              
 
-            ##licence:
+            ### licence:
              Microsoft Public License
              
 
-            ##test:
-             No not yet
+            ### test:
+             No, not yet
              
 
-            ##Contributors:
-             I am the only contributor
+            ### Contributors:
+             I am the only contributor to this project
 
 
-            ##GitHub Name:
-             myGitHub
+            ### GitHub Name:
+             mygitHub
                           
              
-            ##Email Address:
+            ### Email Address:
              myemail@email.com
              
             
