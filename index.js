@@ -1,6 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const markdown = require('./generateTemplate');
+const util = require('util');
+const generateReadMe = require('./generateReadMe');
+//const apiCall = require('./api');
+const writeFileSync = util.promisify(fs.writeFile);
 
 
 
@@ -36,8 +39,8 @@ function init(){
 
         {
             type: "list",
-            name: "licence",
-            message: "What licence do you need",
+            name: "license",
+            message: "What license do you need for ypur peoject",
             choices: ["Apache", "MIT","Microsoft Public License", "PostgreSQL License","None"]
         },
 
@@ -46,7 +49,12 @@ function init(){
             name: "test",
             message: "How can this be tested "
         },
-
+       
+        {
+            type: "input",
+            name: "contributing",
+            message: "Who are the contributors of this projects?"
+        },
 
         {
             type: "input",
@@ -62,12 +70,12 @@ function init(){
 
     ])
 
-        .then((answers) => {
+        .then((questions) => {
         // Use user feedback for... 
-        console.log(answers);
+        console.log(questions);
         // take the answers and write into a file
-        // use fs writefile
-       fs.writeFileSync("README.md", generateTemplate(answers))// name of file, 
+       const data = JSON.stringify(questions, null, 2);
+       fs.writeFileSync("README.md", generateReadMe(questions))// name of file, 
 
         // add code here=-
     })
@@ -79,36 +87,13 @@ function init(){
         }
     });
 }
-function generateTemplate(data){
-    // use the data from the inquirer answers inside of the template
-   return `# ${data.title}
-             ${data.description}
-             ## Table of Content:
-             *[Installation](#installation)
-             *[Usage](#usage)
-             *[Licence](#licence)
-             *[Test](#test)
-             *[Test](#test)
-             ${data.installation}
-             ##installation:
-             ${data.usage}
-             ##usage:
-             ${data.licence}
-             ##licence:
-             ${data.test}
-             ##test:
-             ${data.gitHubName}
-             ##GitHub Name:
-             ${data.emailAddress}
-             ##Email Address:
- `
-};
+
 
 //module.exports = generateTemplate;
 
-function writeToFile(answerFile, actualAnswers ){
-    fs.writeFile(answerFile, actualAnswers )
-}
+// function writeToFile(answerFile, actualAnswers ){
+//     fs.writeFile(README.md, actualAnswers )
+// }
 
 // .then((answers) => {
 //     const htmlPageContent = generateHTML(answers);
