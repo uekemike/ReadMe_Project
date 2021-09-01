@@ -47,7 +47,7 @@ function init(){
         {
             type: "input",
             name: "test",
-            message: "How can this be tested "
+            message: "Is there a Test included "
         },
        
         {

@@ -1,10 +1,8 @@
-function generateReadMe(answers){
-    // use the data from the inquirer answers inside of the template
-   return `
+
             # README.md_Generator
             
-             ${answers.title}
-             ${answers.description}
+             ReadME Generator
+             Using Node.js, create a template README.md file with users input to generate the README.',
 
             ## Table of Content:
              *[Installation](#installation)
@@ -15,35 +13,32 @@ function generateReadMe(answers){
 
 
             ##installation:
-             ${answers.installation}
+             FS, Util, Inquirer
              
 
             ##usage:
-             ${answers.usage}
+             'Start the project by entering the command node index.js in Bash/Terminal. Next you would be prompted with a series of questions. Once you are done answering the question the ReadME.md file will be populated with your answers.
              
 
             ##licence:
-             ${answers.license}
+             Microsoft Public License
              
 
             ##test:
-             ${answers.test}
+             No not yet
              
 
             ##Contributors:
-             ${answers.contributing}
+             I am the only contributor
 
 
             ##GitHub Name:
-             ${answers.gitHubName}
+             myGitHub
                           
              
             ##Email Address:
-             ${answers.emailAddress}
+             myemail@email.com
              
             
             Copyright 2021 &copy;
- `
-};
-
-module.exports = generateReadMe;
+ 
