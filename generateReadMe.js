@@ -1,24 +1,20 @@
 function generateReadMe(answers){
     // use the data from the inquirer answers inside of the template
-   return `
-            # README.md_Generator
+   return 
+           ` # README.md Generator
             
              ${answers.title}
              ${answers.description}
 
-            ## Table of Content:
-             *[Installation](#installation)
-             *[Usage](#usage)
-             *[Licence](#licence)
-             *[Test](#test)
-             *[Test](#Contributors)
+            ## Table of Content
+             ${answers.tableOfContents}
 
 
-            ## installation:
+            ### installation:
              ${answers.installation}
              
 
-            ## usage:
+            ### usage:
              ${answers.usage}
              
 
