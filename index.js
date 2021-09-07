@@ -24,7 +24,7 @@ function init(){
         {
             type: "checkbox",
             name: "tableOfContents",
-            message: "Select the contents of your Table of Contents:",
+            message: "Select the contents for your Table of Contents:",
             choices: [
                 "Project Title",
                 "Description",
@@ -93,7 +93,7 @@ function init(){
         // take the answers and write into a file
         const data = JSON.stringify(answers, null, 2);
         fs.writeFileSync("README.md", generateReadMe(answers))// name of file, 
-       
+        return answers;
         // add code here=-
     })
     .catch((error) => {
